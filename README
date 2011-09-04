@@ -1,0 +1,28 @@
+The idea is to create a pipeline to enhance object from a high-cadence burst of images. The limitation is that the object should be static for at least a few images.
+
+
+During my PhD I worked with tools to remove optical atmospheric aberrations from images taken with solar telescopes. 
+There is a great deal of awesome work beign done there. 
+I believe I should at least try to apply some of these concepts for general purpose images.
+
+Let´s start simple.
+
+Think of a video feed a zoomed-in video blurred by heat.
+The pipeline would be:
+
+1.- Read input frames.
+2.- Create a median image and higest contrast image. Evaluate the fittness of the integration time. As much as possible there should not be changes during the integration time of that frame.
+
+3.- Try to determine the size of the iso-planatic patch (solid angle where aberrations can be considered constant).
+
+4.- For each sub-image burst, order a batch by decreasing contrast, select first few:
+4a.-Apply speckle interferometry and check result.
+4b.-Apply Blind Deconvolution and check result. MOMFBD is free to use, but highly tailored to solar telescopes.
+4c.-Use high contrast images as first estimation for reconstruction.
+
+5.- Combine subfields. Use reconstruction as first estimation for the next iteration.
+
+
+5.- Combine subfields. Use reconstruction as first estimation for the next iteration.
+
+
