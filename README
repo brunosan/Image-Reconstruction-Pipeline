@@ -11,7 +11,7 @@ Think of a video feed a zoomed-in video blurred by heat.
 The pipeline would be:
 
 1.- Read input frames.
-2.- Create a median image and higest contrast image. Evaluate the fittness of the integration time. As much as possible there should not be changes during the integration time of that frame.
+2.- Create a median image and higest contrast image. Evaluate the fittness of the integration time. As much as possible there should not be changes in the objects during the integration time of each frame, and the burst length.
 
 3.- Try to determine the size of the iso-planatic patch (solid angle where aberrations can be considered constant).
 
@@ -20,9 +20,7 @@ The pipeline would be:
 4b.-Apply Blind Deconvolution and check result. MOMFBD is free to use, but highly tailored to solar telescopes.
 4c.-Use high contrast images as first estimation for reconstruction.
 
-5.- Combine subfields. Use reconstruction as first estimation for the next iteration.
+5.- Combine subfields. Use reconstruction as first estimation for the next iteration. Adjust length of burst and size of patches.
 
-
-5.- Combine subfields. Use reconstruction as first estimation for the next iteration.
 
 
